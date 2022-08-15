@@ -93,12 +93,15 @@ const Register = () => {
     }
   };
 
+
+
+  //수정 필요~!!
   const handlePasswordcheck = (e) => {
-    //  8 ~ 10자 영문, 숫자 조합
-    let password = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    // 형식에 맞는 경우 true 리턴
-    if (password.test(e.target.value)===pword) {
-      errorAlerterRef.current.textContent = "";
+
+    let repassword = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+
+    if (repassword.test(e.target.value)===repassword) {
+      errorAlerterRef.current.textContent = "비밀번호가 일치 합니다.";
       //비번이 맞을시, pw검사 state를 true로
       setPwordcheck(e.target.value);
     } 
@@ -115,15 +118,10 @@ const Register = () => {
     // 형식에 맞는 경우 true 리턴
     if (Nickname.test(e.target.value)) {
       errorAlerterRef.current.textContent = "";
-      //비번이 맞을시, pw검사 state를 true로
+      
       setuserNickname(e.target.value);
+    
     } 
-    else {
-      errorAlerterRef.current.textContent = "8자리 이상의 영문, 숫자, 특수문자";
-
-      //비번이 틀릴시, pw검사 state를 false로
-      setuserNickname(false);
-    }
   }
 
     return (
