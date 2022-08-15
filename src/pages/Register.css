@@ -1,0 +1,27 @@
+.joinWrapper{
+    margin: auto;
+    min-width: 330px;
+    max-width: 440px;
+}
+.textForm{
+    margin: 30px;
+    padding: 10px 10px;
+    border-bottom: 2px solid var(--line-gray);
+}
+.joinheader{
+    text-align: center;
+    margin: 70px;
+}
+.loginid{
+    font-size: 16px;
+}
+.btn{
+    display: block;
+    margin: auto;
+    width:70%;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(--main-deep-brown);
+}

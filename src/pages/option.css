@@ -1,0 +1,121 @@
+.optionWrapper{
+    width: 100%;
+    max-width: 470px;
+    min-width: 330px;
+    margin: auto;
+}
+
+
+.optionHeader{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+    border-bottom: 1px solid var(--line-gray);
+}
+.optionHeaderback{
+    
+    margin: 25px 0px;
+    cursor: pointer;
+    
+    
+}
+.optionHeadername{
+    margin: auto ;
+    
+}
+
+.profileNamecard{
+    display: flex;
+    border: 1px solid var(--font-light-gray);
+    border-right: 1px solid var(--main-deep-brown);
+    height: 110px;
+    border-radius: 5px; 
+    margin: 20px;
+
+}
+.profilepicture{
+    margin: 20px;
+}
+.namecardInfo{
+    margin-top: 20px;
+}
+.cardBreed{
+    font-size:12px;
+    color: var(--font-gray);
+}
+.Browndiv{
+    margin-left: auto;
+    width: 50px;
+    height: 100%;
+    background-color: var(--main-deep-brown);
+    border-radius: 5px;
+}
+.Whiteholediv{
+    width: 13px;
+    height:13px;
+    background-color: var(--background-white);
+    border-radius: 100%;
+    margin: 50px auto;
+    
+    
+}
+.optionMenu{
+    margin: auto;
+    border-top: 1px solid var(--font-gray);
+    
+}
+.account{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--line-gray);
+    cursor: pointer;
+}
+.profileEditor{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--line-gray);
+    cursor: pointer;
+}
+.privacy{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--line-gray);
+    cursor: pointer;
+}
+.alertOption{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--line-gray);
+    cursor: pointer;
+}
+.cs{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--line-gray);
+    cursor: pointer;
+}
+.logout{
+    padding: 15px 5px;
+    display: flex;
+    border-bottom: 1px solid var(--font-gray);
+    cursor: pointer;
+}
+.profileEdit{
+    margin-right:10px;
+}
+.accountEdit{
+    margin-right:10px;
+}
+.privacyEdit{
+    margin-right:10px;
+}
+.alertEdit{
+    margin-right:10px;
+}
+.csEdit{
+    margin-right:10px;
+}
+.logoutEdit{
+    margin-right:10px;
+}

@@ -1,5 +1,5 @@
 /* 라디오 네비 */
-.radioNav{
+.radioNav {
   width: 100%;
   max-width: 470px;
   min-width: 330px;
@@ -8,11 +8,11 @@
   display: flex;
   align-items: center;
 }
-.radioNav>a{
+.radioNav > a {
   height: 100%;
-  }
+}
 
-.radioNavButton{
+.radioNavButton {
   float: left;
   margin: 0 20px;
   display: flex;
@@ -20,17 +20,15 @@
   align-items: center;
 }
 
-a.active>div{
+a.active > div {
   color: var(--main-deep-brown);
   font-weight: 600;
   border-bottom: 2px solid var(--main-deep-brown);
   height: 100%;
 }
 
-
-
 /* 스토리앨리먼트 */
-.storyWrapper{
+.storyWrapper {
   margin: 0 auto;
   width: 100%;
   max-width: 470px;
@@ -38,8 +36,12 @@ a.active>div{
   border: 1px solid var(--line-gray);
 }
 
-
-.story{
+.slick-track {
+  display: flex !important;
+  align-items: center;
+  background-color: var(--background-gray);
+}
+.story {
   width: 100%;
   max-width: 470px;
   min-width: 330px;
@@ -48,15 +50,16 @@ a.active>div{
   border-color: var(--line-gray);
   margin: 0 auto;
 }
-.userProfileWrapper{
+.userProfileWrapper {
   width: 100%;
   padding: 10px;
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  background-color: #fff;
 }
 
-.storyInteractionWrapper{
+.storyInteractionWrapper {
   width: 100%;
   border-width: 1px 0px;
   border-style: solid;
@@ -64,32 +67,33 @@ a.active>div{
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  background-color: #fff;
 }
-.storyDetailWrapper{
+.storyDetailWrapper {
   width: 100%;
   min-height: 80px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
-
+  background-color: #fff;
 }
-.userProfile-sm{
+.userProfile-sm {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.userProfile-sm span{
+.userProfile-sm span {
   display: block;
 }
-.userProfile-sm > img{
+.userProfile-sm > img {
   width: 40px;
   height: 40px;
   display: block;
   border-radius: 100%;
   border: 2px solid var(--line-gray);
-  margin-right: 16px;
+  margin-right: 10px;
 }
-.icon{
+.icon {
   width: 36px;
   height: 36px;
   margin-right: 20px;
@@ -98,4 +102,40 @@ a.active>div{
   padding: 7px;
   padding-left: 0;
 }
+.comment_input {
+  border: 1px solid var(--line-gray);
+}
 
+/* .storyComment>span{
+  line-height: 0.8rem;
+} */
+.storydetail {
+  max-width: 470px;
+  min-width: 330px;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: var(--line-gray);
+  height: 530px;
+}
+.story_detail_wrapper {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.story_deatil_comments_wrapper {
+  max-width: 470px;
+  min-width: 330px;
+  height: 530px;
+}
+
+.comment_userProfile {
+  float: left;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  margin-right: 5px;
+}

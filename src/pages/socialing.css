@@ -1,100 +1,169 @@
-.header{
-    display: flex;
-    justify-content: center;
+.header {
+  display: flex;
+  justify-content: center;
 }
-.social_wrapper{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 470px;
-    min-width: 330px;
+.social_wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 470px;
+  min-width: 330px;
 }
-.social_title_back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
+.social_title_back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
 }
-.social_title_back>img{
-    width:20px;
-}
-
-.social_header{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 470px;
-    min-width: 330px;
-    height: 70px;
-    border-bottom: 1px solid var(--line-gray);
-}
-.social_chatting{
-    cursor: pointer;
-}
-.social_chatting img{
-    width: 150px;
-    object-fit: cover;
-}
-.social_title_add{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
-}
-.social_title_add>img{
-    width: 32px;
+.social_title_back > img {
+  width: 20px;
 }
 
-.search_box{
-    width: 100%;
-    max-width: 470px;
-    min-width: 330px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+.social_header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 470px;
+  min-width: 330px;
+  height: 70px;
+  border-bottom: 1px solid var(--line-gray);
 }
-.search_box>input{
-    width: 100%;
-    margin: 10px 0;
-    min-height: 42px;
-    padding: 10px 20px;
+.social_chatting {
+  cursor: pointer;
 }
-.search{
-    
-    border-radius: 5px;
-    background-color: var(--background-gray);
-    width: 330px;
-    height:34px;
-    padding: 20px;
+.social_chatting img {
+  width: 150px;
+  object-fit: cover;
 }
-.category{
-    height: 20px;
-    margin-bottom: 10px;
-
+.social_title_add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
 }
-.social_box{
-    margin: 0 auto;
-}
-.social_chatting{
-    border: 1px solid var(--line-gray);
-    border-radius: 5px;
-    width: 100%;
-    max-width: 470px;
-    min-width: 330px;
-    display: flex;
-    margin: 5px 0;
-}
-.chatting_title{
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
+.social_title_add > img {
+  width: 32px;
 }
 
-.chatting_profile{
-    border-radius: 5px;
+.search_box {
+  width: 100%;
+  max-width: 470px;
+  min-width: 330px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.search_box > input {
+  width: 100%;
+  margin: 10px 0;
+  min-height: 42px;
+  padding: 10px 20px;
+}
+.search {
+  border-radius: 5px;
+  background-color: var(--background-gray);
+  width: 330px;
+  height: 34px;
+  padding: 20px;
+}
+.category {
+  height: 20px;
+  margin-bottom: 10px;
+}
+.social_box {
+  margin: 0 auto;
+}
+.social_chatting {
+  border: 1px solid var(--line-gray);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 470px;
+  min-width: 330px;
+  display: flex;
+  margin: 5px 0;
+}
+.chatting_title {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatting_profile {
+  border-radius: 5px;
+}
+
+/* 새 소셜링 */
+.newsocial_title {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.new_social_icon {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 100%;
+  float: left;
+  margin-right: 10px;
+}
+.social_category_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--line-gray);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.social_category_wrapper.active {
+  border: 1px solid var(--main-deep-brown);
+}
+
+.new_social_left {
+  float: right;
+}
+.new_social_left_wrap {
+  padding: 20px;
+}
+.new_social_right_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 100%;
+}
+.new_social_right_wrap > img {
+  width: 2rem;
+}
+
+/* 제목작성란 */
+.social_title_input {
+  padding: 5px;
+  resize: none;
+  border-radius: 5px;
+}
+.input_length_counter {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+/* 내용작성란 */
+#new_social_detail {
+  height: 300px;
+}
+#fileUpload {
+  width: 100%;
+  height: 200px;
+  background-color: aquamarine;
+  margin-bottom: 10px;
 }

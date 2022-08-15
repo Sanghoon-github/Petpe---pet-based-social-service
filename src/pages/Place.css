@@ -105,10 +105,18 @@
 .place_name{
     margin-top: 10px;
 }
+.grade{
+    display: flex;
+}
 .rate{ 
     padding-right: 10px;
-    margin: 10px;
+    margin: 5px;
     border-right: 2px solid var(--line-gray);
+}
+.rate_img{
+    width: 15px;
+    height:15px;
+    margin-top:10px;
 }
 .time{
     padding-right: 10px;
@@ -117,4 +125,7 @@
 }
 .parking{
     padding: 5px;
+}
+.location{
+    color:var(--font-gray);
 }

@@ -9,6 +9,9 @@ const Container = styled.section`
   align-items: center;
   justify-content: center;
 `;
+export const PaddingWrap = styled.div`
+  padding: 20px;
+`
 
 export default Container
 

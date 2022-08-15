@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import MiniButton from "../components/minibutton";
 import "./Place.css";
+import TopHeader from "../components/TopHeader";
+import { RadioNavigater } from "../components/globalComponent";
 
 
 const Place = () => {
   return (
     <>
+    <TopHeader type="2" name="플레이스"/>
+    <RadioNavigater/>
       <div className="place_wrapper">
         <div className="search_box">
           <input type="text" className="search" placeholder=" 검색" />
@@ -68,20 +72,18 @@ export const PlaceElement = () => {
           className="info_profile"
         />
         <div className="place_info">
-            <span className="place_name h2">댕댕병원</span>
+            <span className="place_name h4">댕댕병원</span>
             <div className="place_grade">
               <div className="grade">
-                <img src="./img/rate.png" alt="평점" className="rate_img"></img>
+                <img src="./img/rate.png" alt="평점" className="rate_img"/>
                 <span className="rate">4.23</span> 
                 <span className="time">09:00 ~ 18:00 (일 휴무)</span>
                 <span className="parking">주차가능</span>
               </div>
             </div>
-            <div className="location">
-              <span className="how_locatain">
+            <span className="location">
                 부평구청 뒤 해밀턴 호텔에서 300미터 직진
-              </span>
-            </div>
+            </span>
           </div>
       </div>
     </>

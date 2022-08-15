@@ -9,7 +9,8 @@
   font-family: "Noto Sans KR", sans-serif;
   color: var(--font-black);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
+  text-decoration: none;
 }
 :root{
   --main-deep-brown: #a68762;
@@ -29,29 +30,56 @@
 body {
   min-height: 100vh;
 }
+.opacity-50{
+  opacity: 0.5;
+}
 input {
   outline: none;
   border: none;
+}
+span{
+  line-height: auto;
 }
 .skeleton {
   background-color: var(--font-gray);
 }
 img{
   display: block !important;
+  object-fit: cover;
 }
+
+.mt-5{
+  margin-top: 5px;
+}
+.mt-10{
+  margin-top: 10px;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+.mr-10{
+  margin-right: 10px;
+}
+
+
 /* 컬러시스템 */
-.fontgray, 
-::placeholder {
+.fontgray {
   color: var(--font-gray)
 }
 .font_deep_brown {
   color: var(--main-deep-brown);
 }
-.fot
+.font_light_gray,::placeholder{
+  color: var(--font-light-gray);
+}
 
 /* 타입시스템 */
 .bold {
   font-weight: 500;
+}
+.xbold{
+  font-weight: 600;
 }
 
 .h5 {
@@ -85,4 +113,11 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+@media screen and(max-width:425px) {
+  *{
+    letter-spacing: 10px;
+  }
 }
