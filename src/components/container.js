@@ -11,6 +11,7 @@ const Container = styled.section`
 `;
 export const PaddingWrap = styled.div`
   padding: 20px;
+  height: 100vh;
 `
 
 export default Container

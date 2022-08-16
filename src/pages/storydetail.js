@@ -18,14 +18,14 @@ const StoryDetail = () => {
     });
   }, []);
   if (isLoading) {
-    return <TopHeader type="1"/>;
+    return <TopHeader type="1" />;
   } else
     return (
       <>
         <TopHeader type="1"/>
         <div className="story_detail_background">
           <div className="story_detail_wrapper">
-            <section className="storydetail">
+            <section className="story_detail">
               <div className="userProfileWrapper">
                 <div className="userProfile-sm">
                   <img
@@ -104,15 +104,16 @@ const StoryDetail = () => {
                   })}
                 </div>
 
-                <input
-                  type="text"
-                  className="mt-10"
-                  placeholder="댓글을 입력하세요"
-                />
+
                 <span className="postedDate h5 fontgray mt-5">
                   {new Date(story.createdAt).toLocaleDateString()}
                 </span>
               </div>
+              <input 
+                  type="text"
+                  className="mt-10 comment_input"
+                  placeholder="댓글을 입력하세요"
+                />
             </section>
           </div>
         </div>

@@ -88,16 +88,35 @@
   margin: 5px 0;
 }
 .chatting_title {
+  width: 100%;
   margin: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .chatting_profile {
   border-radius: 5px;
 }
 
-/* 새 소셜링 */
+
+
+/* ===========================새 소셜링 =====================*/
+/* ===========================새 소셜링 =====================*/
+/* ===========================새 소셜링 =====================*/
+.cutover_100vh{
+  height: 100vh;
+  overflow: hidden;
+}
+.newwsocial_form_wrapper{
+  height: 100vh;
+  overflow: hidden;
+
+}
+/* .newsocial_slider{
+  transform: translateY(-400vh);
+} */
+
 .newsocial_title {
   display: block;
   margin-bottom: 10px;

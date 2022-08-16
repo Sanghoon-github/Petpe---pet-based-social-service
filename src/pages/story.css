@@ -102,20 +102,22 @@ a.active > div {
   padding: 7px;
   padding-left: 0;
 }
+
+
+
+/* 디테일 페이지용 css */
 .comment_input {
   border: 1px solid var(--line-gray);
 }
 
-/* .storyComment>span{
-  line-height: 0.8rem;
-} */
-.storydetail {
+.storyComment{
+  margin: 10px 0;
+}
+
+.story_detail {
   max-width: 470px;
   min-width: 330px;
-  border-width: 1px 0px;
-  border-style: solid;
-  border-color: var(--line-gray);
-  height: 530px;
+  height: 550px;
 }
 .story_detail_wrapper {
   flex-direction: row;
@@ -124,14 +126,26 @@ a.active > div {
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
+
+}
+.storyDetailWrapper{
+  min-height: 100%;
 }
 
 .story_deatil_comments_wrapper {
   max-width: 470px;
   min-width: 330px;
   height: 530px;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
 }
-
+.comment_input{
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding:10px
+}
 .comment_userProfile {
   float: left;
   width: 24px;

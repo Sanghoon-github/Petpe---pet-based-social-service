@@ -1,41 +1,40 @@
 import React, { useState, useEffect } from "react";
 import "./story.css";
-import {
-  Route,
-  Routes,
-  Link,
-} from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import axios from "../../node_modules/axios/index";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopHeader from "../components/TopHeader";
 import { RadioNavigater, WrongPage } from "../components/globalComponent";
-import StoryDetail from './storydetail';
+import StoryDetail from "./storydetail";
+
 
 const Story = () => {
   // 처음 랜더링때 화면표시용
+
   const [isLoading, setIsLoading] = useState(true);
   const [story, setStory] = useState();
-  const [storyDetail,setStoryDetail] = useState([]);
-  
+  const [storyDetail, setStoryDetail] = useState([]);
+
   useEffect(() => {
     setIsLoading(true);
-    try{
-    axios.get("http://3.39.181.250/story").then((response) => {
-      setStory(response.data);
-      setIsLoading(false);
-    })}
-    catch(err){
-      setIsLoading("err")
+    try {
+      axios.get("http://3.39.181.250/story").then((response) => {
+        setStory(response.data);
+        setIsLoading(false);
+      });
+    } catch (err) {
+      setIsLoading("err");
     }
   }, []);
 
   // 새로고침용 함수
 
-  if (isLoading){return(<TopHeader type="3" callBackImg="profile_icon" />)}
-  else if(isLoading==="err"){
-    return(<WrongPage/>)
+  if (isLoading) {
+    return <TopHeader type="3" callBackImg="profile_icon" />;
+  } else if (isLoading === "err") {
+    return <WrongPage />;
   }
   return (
     <Routes path="/">
@@ -43,7 +42,13 @@ const Story = () => {
         path="/"
         element={
           <>
-            <TopHeader type="3" callBackImg="profile_icon" />
+            <TopHeader
+              type="4"
+              callBackImg="profile_icon"
+              URL="/profile"
+              callBackType2="img"
+              callBackImg2="plus"
+            />
             <RadioNavigater />
             <section className="storyWrapper">
               {story.map((props) => {
@@ -53,7 +58,7 @@ const Story = () => {
           </>
         }
       />
-      <Route path="/:id" element={<StoryDetail/>} ></Route>
+      <Route path="/:id" element={<StoryDetail />}></Route>
     </Routes>
   );
 };
@@ -138,7 +143,7 @@ export const StoryEle = (props) => {
             </Link>
           )}
         </div>
-        <span className="storyComment h5">{props.comments.text}</span>
+        {/* <span className="storyComment h5">{props.comments.text}</span> */}
         <input type="text" className="mt-5" placeholder="댓글을 입력하세요" />
         <span className="postedDate h5 fontgray mt-5">
           {new Date(props.createdAt).toLocaleDateString()}

@@ -32,9 +32,9 @@ export const RadioNavigater = () => {
       <NavLink to="/place">
         <div className="radioNavButton">플레이스</div>
       </NavLink>
-      <NavLink to="/talktalk">
+      {/* <NavLink to="/talktalk">
         <div className="radioNavButton">반려톡톡</div>
-      </NavLink>
+      </NavLink> */}
     </nav>
   );
 };

@@ -55,7 +55,9 @@ const Login = () => {
       );
 
       const accessToken = response?.data?.access_token;
-      setAuth({ user: user, pwd: pwd, accessToken: accessToken });
+      const userimage = response?.data?.user?.userimage;
+
+      setAuth({ user: user, pwd: pwd, accessToken: accessToken, userimage:userimage });
       
       setUser("");
       setPwd("");

@@ -3,22 +3,25 @@ import "./socialing.css";
 import MiniButton from "../components/minibutton";
 import { Routes, Route } from "react-router-dom";
 import { PaddingWrap } from "./../components/container";
-import ButtonLarge, { RadioNavigater, StyledInput } from "../components/globalComponent";
+import ButtonLarge, {
+  RadioNavigater,
+  StyledInput,
+} from "../components/globalComponent";
 import TopHeader from "../components/TopHeader";
-
+import RequireAuth from "./RequireAuth";
 
 const Socialing = () => {
   const [socialPost, setSocialPost] = useState(dummyDataForSocial);
 
   return (
     <>
-      <Routes>
+      <Routes path="/">
         <Route
-          path="/"
+          path="/*"
           element={
             <>
-            <TopHeader type="3" name="소셜링" />
-            <RadioNavigater/>
+              <TopHeader type="3" name="소셜링" URL="/social/newsocial" />
+              <RadioNavigater />
               <div className="social_wrapper">
                 <div className="search_box">
                   <input type="text" className="search" placeholder=" 검색" />
@@ -31,23 +34,38 @@ const Socialing = () => {
             </>
           }
         />
-        <Route path="/newsocial" element={<NewSocialing />} />
+        <Route path="/newsocial" element={<RequireAuth />}>
+          <Route path="/newsocial" element={<NewSocialing />} />
+        </Route>
       </Routes>
     </>
   );
 };
 
-const NewSocialing = (user) => {
+export const NewSocialing = () => {
+  const transformWrap = useRef()
+  const [indexOfForm,setIndexOfForm]=useState(1)
+  const handletransform = (index=indexOfForm)=>{
+    if(index>0 && index<5){
+    transformWrap.style.transform=`transformY(${-(indexOfForm*100)})`
+    setIndexOfForm(indexOfForm+1)}
+  }
+
   return (
-    <>
+    <section className="cutover_100vh">
+      <TopHeader type="3" name="소셜링 열기" />
       <section className="social_wrapper">
-        {/* <ChooseNewCategory />
-        <TypeNewTitle /> 
-        <TypeNewDetail />
-        <TypeNewTime /> */}
-        <SelectType/>
+        <div className="newwsocial_form_wrapper">
+          <div className="newsocial_slider"ref={transformWrap}>
+            <ChooseNewCategory />
+            <TypeNewTitle />
+            <TypeNewDetail />
+            <TypeNewTime />
+            <SelectType />
+          </div>
+        </div>
       </section>
-    </>
+    </section>
   );
 };
 
@@ -82,7 +100,7 @@ const ChooseNewCategory = () => {
         description={"펫베이커리, 코디네이터, 관리사"}
         type="growth"
       />
-      <ButtonLarge children="다음" />
+      <ButtonLarge children="다음" onClick={""} />
     </PaddingWrap>
   );
 };
@@ -153,7 +171,9 @@ const TypeNewTime = () => {
         }}
       />
       <div className="input_length_counter"></div>
-      <ButtonLarge className={typedTime&&typedDate ? "" : "disabled"}>다음</ButtonLarge>
+      <ButtonLarge className={typedTime && typedDate ? "" : "disabled"}>
+        다음
+      </ButtonLarge>
     </PaddingWrap>
   );
 };
@@ -175,7 +195,8 @@ const SelectType = () => {
         type="button"
         onClick={(e) => {
           setSelectedType("offline");
-        }}value="오프라인"
+        }}
+        value="오프라인"
       />
       <div className="input_length_counter"></div>
       <ButtonLarge className={selectedType ? "" : "disabled"}>다음</ButtonLarge>
@@ -190,10 +211,22 @@ export const SocialingElement = (props) => {
       <img
         src={props.img}
         alt={`${props.title} 대표 이미지`}
-        className={props.participant.length===props.maxParticipant?"chatting_profile opacity-50":"chatting_profile"}
+        className={
+          props.participant.length === props.maxParticipant
+            ? "chatting_profile opacity-50"
+            : "chatting_profile"
+        }
       />
       <div className="chatting_title">
-        <span className={props.participant.length!==props.maxParticipant?"p bold":"p bold font_light_gray"}>{props.title}</span>
+        <span
+          className={
+            props.participant.length !== props.maxParticipant
+              ? "p bold"
+              : "p bold font_light_gray"
+          }
+        >
+          {props.title}
+        </span>
         <span className="h5 fontgray">{props.date}</span>
         <span className="h5 fontgray">{props.location}</span>
         <span className="h5 fontgray">
@@ -221,8 +254,8 @@ const SocialCategory = ({ title, description, type, active }) => {
           src={`../../img/social_category_${type}.jpg`}
           alt=""
         />
-        <div className="new_social_left">
-          <p>{title}</p>
+        <div className="new_social_left ">
+          <p className="bold">{title}</p>
           <span className="h5 fontgray">{description}</span>
         </div>
       </div>
