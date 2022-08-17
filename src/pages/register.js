@@ -75,6 +75,8 @@ const Register = () => {
     }
   };
 
+
+
   //비밀번호 유효성 검사
   const handlePassword = (e) => {
     //  8 ~ 10자 영문, 숫자 조합
@@ -87,7 +89,6 @@ const Register = () => {
     } 
     else {
       errorAlerterRef.current.textContent = "8자리 이상의 영문, 숫자, 특수문자";
-
       //비번이 틀릴시, pw검사 state를 false로
       setPword(false);
     }
@@ -95,23 +96,22 @@ const Register = () => {
 
 
 
-  //수정 필요~!!
-  const handlePasswordcheck = (e) => {
 
-    let repassword = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+const handlePasswordcheck = (e) => {
+    let password = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
 
-    if (repassword.test(e.target.value)===repassword) {
-      errorAlerterRef.current.textContent = "비밀번호가 일치 합니다.";
-      //비번이 맞을시, pw검사 state를 true로
+    if (password.test(e.target.value)){
+      if(e.target.value===pword){
+        errorAlerterRef.current.textContent = "비밀번호가 일치 합니다.";
+      }
       setPwordcheck(e.target.value);
     } 
     else {
-      errorAlerterRef.current.textContent = "비밀번호가 일치하지 않습니다.";
-
-      //비번이 틀릴시, pw검사 state를 false로
+      errorAlerterRef.current.textContent = "비밀번호가 일치 하지 않습니다.";
       setPwordcheck(false);
     }
   };
+
 
   const handleNickname = (e) =>{
     let Nickname = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
@@ -120,11 +120,11 @@ const Register = () => {
       errorAlerterRef.current.textContent = "";
       
       setuserNickname(e.target.value);
-    
     } 
   }
 
-    return (
+
+  return (
       <Container>
         <div className="joinWrapper">
             <h2 className="h2 bold joinheader">회원가입</h2>
