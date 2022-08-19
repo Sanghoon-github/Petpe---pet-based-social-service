@@ -1,87 +1,49 @@
-.profileWrapper{
-    width: 100%;
-    max-width: 470px;
-    min-width: 330px;
-    margin: auto;
+.options {
+  cursor: pointer;
 }
-.profileHeader{
-    display: flex;
-    width:470px;
-    height: 70px;
-    padding: 20px;
+.profileCard {
+  display: flex;
+  align-items: center;
 }
-.headerLogo{
-    
+.profileImage {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 2px solid var(--line-gray);
 }
-.headerIcon{
-    display: flex;
-    
-    margin-left: auto;
+
+.profileInfo {
+  margin-left: 20px;
 }
-.headerAlert{
-    
-    cursor: pointer;
+.userInfo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 40px;
+  width: 50px;
+  margin: 20px 0;
 }
-.headerCalender{
-    
-    cursor: pointer;
+
+.Writting {
+  width: 70px;
+  height: 30px;
+  color: var(--font-gray);
+  background-color: #fff;
+  border-radius: 15px;
+  border: 1px solid var(--font-gray);
+  cursor: pointer;
 }
-.options{
-    cursor: pointer;
+.presentpicture {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 50vh;
 }
-.profileCard{
-    display: flex;
-}
-.profileImage{
-    margin: 25px;
-}
-.profileInfo{
-    
-    padding: 20px;
-}
-.userInfo{
-    display: flex;
-    height: 40px;
-    margin: 20px 20px;
-}
-.posting{
-    margin: auto 0px;
-}
-.follower{
-    margin: auto 30px;
-}
-.following{
-    margin: auto 0px;
-}
-.Writting{
-    margin-top: 7.5px;
-    margin-left: auto;
-    width:70px;
-    height: 25px;
-    color: var(--font-gray);
-    background-color: #fff;
-    border-radius: 15px;
-    border: 1px solid var(--font-gray);
-    cursor: pointer;
-}
-.presentpicture{
-    margin: 70px 20px;
-    
-}
-.presentGallery{
-    display: flex;
-    flex-wrap: wrap;
-    
-}
-.exPicture{
-    border-radius: 5px;
-    width:215px;
-    height: 215px;
-    margin: 10px;
-}
-.exPicture2{
-    width:105px;
-    height: 105px;
-    margin: 10px;
-    border-radius: 5px;
+.exPicture {
+  border-radius: 5px;
+  width: 140px;
+  height: 140px;
+  margin: 1px;
+  cursor: pointer;
 }

@@ -1,91 +1,104 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../components/container";
 import Option from "./option";
-import { Link,Route,Routes } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Routes,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import "./profile.css";
 import useAuth from "../hooks/useAuth";
+import TopHeader from "./../components/TopHeader";
+import { MobileWrapper } from "./../components/globalComponent";
+import axios from "../../node_modules/axios/index";
+
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "x-CSRFToken";
 
 const Profile = () => {
   const { auth } = useAuth();
-  console.log(auth.user);
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+  const [userDetail, setUserDetail] = useState();
+
+  useEffect(() => {
+    setIsLoading(true);
+    try {
+      axios
+        .get(`http://3.39.181.250/accounts/user/${auth.pk}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.accessToken}`,
+          },
+          withCredentials: true,
+          "Access-Control-Allow-Credentials": "*",
+        })
+        .then((response) => {
+          setUserDetail(response.data);
+          console.log(response.data);
+          setIsLoading(false);
+        });
+    } catch (err) {
+      console.log(err);
+      setIsLoading("err");
+    }
+  }, []);
+if(isLoading){
+  return (<TopHeader type="4" URL2="/profile/option" callBackImg2="setting" />)
+}else
   return (
-
     <Routes>
-      <Route path="/" element={
-      <div className="profileWrapper">
-        <div className="profileHeader">
-          <Link to="/">
-            <img
-              src="./img/Petpe_small.png"
-              alt="로고"
-              className="headerLogo"
-            />
-          </Link>
-          <div className="headerIcon">
-            <img src="./img/alert.png" alt="알림" className="headerAlert" />
-            <img
-              src="./img/calender.png"
-              alt="캘린더"
-              className="headerCalender"
-            />
-            <Link to="/profile/option">
-              <img src="./img/option.png" alt="설정" className="options" />
-            </Link>
-          </div>
-        </div>
-        <div className="profileCard">
-          <img
-            src="./img/profileImg.png"
-            alt="프로필사진"
-            className="profileImage"
-          ></img>
-          <div className="profileInfo">
-            <span className="cardBreed">
-              말티즈/ 남/ 7세
-              <br />
-            </span>
-            <span className="nickname">
-              쫑이98
-              <br />
-            </span>
-            <span className="comment">사료보단 간식이 좋은 쫑이에요</span>
-          </div>
-        </div>
-        <div className="userInfo">
-          <div className="posting">게시물</div>
-          <div className="follower">팔로워</div>
-          <div className="following">팔로잉</div>
-          <button className="Writting">글쓰기</button>
-        </div>
-        <div className="presentpicture">
-          <span className="presentpicturecomment">대표사진</span>
-          <div className="presentGallery">
-            <img
-              src="./img/profile_img1.jpg"
-              alt="예시사진"
-              className="exPicture"
-            ></img>
-            <img
-              src="./img/profile_img2.jpg"
-              alt="예시사진2"
-              className="exPicture2"
-            ></img>
-            <img
-              src="./img/profile_img2.jpg"
-              alt="예시사진2"
-              className="exPicture2"
-            ></img>
-            <img
-              src="./img/profile_img2.jpg"
-              alt="예시사진2"
-              className="exPicture2"
-            ></img>
-          </div>
-        </div>
-      </div>}/>
-      <Route path="/option" element={<Option/>} />
-
-      </Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <TopHeader type="4" URL2="/profile/option" callBackImg2="setting" />
+            <MobileWrapper>
+              <div className="profileCard">
+                <img
+                  src={auth.userimage}
+                  alt="프로필사진"
+                  className="profileImage"
+                ></img>
+                <div className="profileInfo">
+                  {/* <span className="cardBreed">
+                    말티즈/ 남/ 7세
+                    <br />
+                  </span> */}
+                  <span className="p xbold">
+                    {userDetail.username}
+                    <br />
+                  </span>
+                  <span className="comment">{userDetail.email.substr(0, userDetail.email.indexOf("@"))}</span>
+                </div>
+              </div>
+              <div className="userInfo">
+                <div className="bold">게시물</div>
+                <div>{userDetail.writen_story.length}</div>
+              </div>
+              <button className="Writting">글쓰기</button>
+              <div className="mt-10 bold">게시물</div>
+              <div className="presentpicture">
+                {userDetail.writen_story.map((e) => {
+                  return (
+                    <img
+                      src={e.pictures[0].picture}
+                      alt="예시사진"
+                      className="exPicture"
+                      key={e.id}
+                      onClick={(()=>{navigate(`/story/${e.id}`)})}
+                    ></img>
+                  );
+                })}
+              </div>
+            </MobileWrapper>
+          </>
+        }
+      />
+      <Route path="/option" element={<Option />} />
+    </Routes>
   );
 };
 

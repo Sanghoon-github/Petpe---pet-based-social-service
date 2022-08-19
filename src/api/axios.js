@@ -1,4 +1,6 @@
 import axios from "../../node_modules/axios/index";
+
+
 const BASE_URL = 'http://3.39.181.250';
 
 export default axios.create({

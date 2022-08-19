@@ -4,16 +4,34 @@ import axios from "../../node_modules/axios/index";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import TopHeader from "./../components/TopHeader";
+import MiniButton from './../components/minibutton';
 
 const StoryDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [story, setStory] = useState([]);
+  const [comment,setComment]=useState()
   const userkey = useParams();
+
+  const handleSubmit=()=>{
+    if(story!==undefined)
+    axios.post(`http://3.39.181.250/comments/`,
+    {
+      headers: { "Content-Type": "application/json" },
+      body:{ "text": String(comment), "story": Number(userkey.id) },
+      withCredentials: true
+    }
+    )
+    .then((response) => {
+      console.log(response)
+    });
+  }
+  
 
   useEffect(() => {
     setIsLoading(true);
     axios.get(`http://3.39.181.250/story/${userkey.id}`).then((response) => {
       setStory(response.data);
+      console.log(response.data)
       setIsLoading(false);
     });
   }, []);
@@ -22,7 +40,7 @@ const StoryDetail = () => {
   } else
     return (
       <>
-        <TopHeader type="1"/>
+        <TopHeader type="1" />
         <div className="story_detail_background">
           <div className="story_detail_wrapper">
             <section className="story_detail">
@@ -56,6 +74,7 @@ const StoryDetail = () => {
                         src={e.picture}
                         alt={story.username + "의 사진"}
                         key={story.pictures.indexOf(e)}
+                        className="slick_inner_img"
                       />
                     );
                   })}
@@ -104,16 +123,22 @@ const StoryDetail = () => {
                   })}
                 </div>
 
-
                 <span className="postedDate h5 fontgray mt-5">
                   {new Date(story.createdAt).toLocaleDateString()}
                 </span>
               </div>
-              <input 
+              <div className="new_comment_input_wrapper">
+                <input
                   type="text"
                   className="mt-10 comment_input"
                   placeholder="댓글을 입력하세요"
+                  onChange={(e)=>{
+                    setComment(e.target.value)
+                  }}
                 />
+                <button className={comment?"comment_submit_button active":"comment_submit_button"}
+                onClick={handleSubmit}>제출</button>
+              </div>
             </section>
           </div>
         </div>

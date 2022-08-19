@@ -11,6 +11,9 @@ import Profile from "./pages/profile";
 import Place from "./pages/place";
 import Layout from "./pages/Layout";
 import Newsocialing from "./pages/socialing"
+import NewStory from './pages/storyupdate';
+import Account from "./pages/account";
+
 
 function App() {
   return (
@@ -20,9 +23,9 @@ function App() {
       <Route path="/story/*" element={<Story />} />
       <Route path="/login/*" element={<Login />} />
       <Route path="/social/*" element={<Socialing />} />
-      <Route path="/talktalk/*" element={<TalkTalk />} />
-      <Route path="/place/*" element={<Place />} />
-      
+      <Route path="/talktalk/" element={<TalkTalk />} />
+      <Route path="/place/" element={<Place />} />
+      <Route path="/account/*" element={<Account />} />
 
       {/* need to protect */}
       <Route element={<RequireAuth />}>

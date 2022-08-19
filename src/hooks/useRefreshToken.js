@@ -1,17 +1,23 @@
-import axios from "../../node_modules/axios/index";
+import axios from "../api/axios";
 import useAuth from "./useAuth";
 
 const useRefreshToken = () => {
-  const { setAuth } = useAuth();
 
+  const { auth,setAuth } = useAuth();
   const refresh = async () => {
-    const response = await axios.get("http://127.0.0.1:8000/accounts/token/refresh/", {
+    const response = await axios.post("/accounts/token/refresh",JSON.stringify({"refresh" : auth.refresh})
+    ,{
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${auth.accessToken}` },
       withCredentials: true,
-    });
+    }
+    );
+
     setAuth((prev) => {
-      return { ...prev, accessToken: response.data.access_Token };
+      console.log(JSON.stringify(prev));
+      console.log(response.data.access);
+      return { ...prev, accessToken: response.data.access };
     });
-    return response.data.access_Token;
+    return response.data.access;
   };
   return refresh;
 };

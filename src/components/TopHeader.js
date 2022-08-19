@@ -2,9 +2,13 @@ import { React, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 import logo from "../img/logo.png";
 import back from "../img/back.png";
+import setting from "../img/setting.png";
 import AuthContext from "../context/AuthProvider";
+import plus from "../img/plus.png";
+import profile from "../img/profile.png";
 
 const HeaderBarUnderLine = styled.header`
   width: 100%;
@@ -48,6 +52,14 @@ const IconImg = styled.img`
   height: 32px;
   object-fit: cover;
   float: right;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  &div{
+    border: 2px solid var(--font-gray);
+  }
 `;
 
 const IconContainer = styled.div`
@@ -82,6 +94,10 @@ const TopHeader = ({
   const goback = () => {
     navigate(-1);
   };
+  const gohome = () => {
+    navigate("/");
+  };
+  
 
   // 3단 헤더
 
@@ -101,9 +117,9 @@ const TopHeader = ({
           <Link to={URL}>
             <IconWrapper onClick={callBack}>
               {callBackType === "text" ? (
-                <IconImg as="span">{callBackText}</IconImg>
+                <IconImg as="div">{callBackText}</IconImg>
               ) : (
-                <IconImg src={`../../img/${callBackImg}.png`} alt="새 글쓰기" />
+                <IconImg src={callBackImg} alt="새 글쓰기" />
               )}
             </IconWrapper>
           </Link>
@@ -148,7 +164,7 @@ const TopHeader = ({
             src={logo}
             alt="로고"
             className="header_logo"
-            onClick={goback}
+            onClick={gohome}
           />
 
           <span className="h3 xbold">{name}</span>
@@ -156,7 +172,7 @@ const TopHeader = ({
           <IconContainer>
             <Link to={URL2}>
               <IconWrapper onClick={callBack2}>
-                {callBackType === "text" ? (
+                {callBackType2 === "text" ? (
                   <IconImg as="span">{callBackText2}</IconImg>
                 ) : (
                   <IconImg

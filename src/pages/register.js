@@ -15,6 +15,7 @@ const Register = () => {
 
   const errRef = useRef();
   const userIdRef = useRef();
+  
 
   const [userEmail, setUserEmail] = useState();
   const [pword, setPword] = useState();
@@ -66,7 +67,7 @@ const Register = () => {
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     // 형식에 맞는 경우 true 리턴
     if (email.test(e.target.value)) {
-      errorAlerterRef.current.textContent = "성공";
+      errorAlerterRef.current.textContent = "";
       setUserEmail(e.target.value);
     } 
     else {
@@ -75,56 +76,51 @@ const Register = () => {
     }
   };
 
-
-
   //비밀번호 유효성 검사
   const handlePassword = (e) => {
     //  8 ~ 10자 영문, 숫자 조합
-    let password = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+    let password1 = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
     // 형식에 맞는 경우 true 리턴
-    if (password.test(e.target.value)) {
+    if (password1.test(e.target.value)) {
       errorAlerterRef.current.textContent = "";
       //비번이 맞을시, pw검사 state를 true로
       setPword(e.target.value);
     } 
     else {
       errorAlerterRef.current.textContent = "8자리 이상의 영문, 숫자, 특수문자";
+
       //비번이 틀릴시, pw검사 state를 false로
       setPword(false);
     }
   };
 
 
+  //비밀번호 동일성 검사
+  const handlePasswordcheck = ((e)=>{
+    
+    const passwordconfirm =(e.target.value)
+    setPwordcheck(passwordconfirm)
 
-
-const handlePasswordcheck = (e) => {
-    let password = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-
-    if (password.test(e.target.value)){
-      if(e.target.value===pword){
-        errorAlerterRef.current.textContent = "비밀번호가 일치 합니다.";
-      }
-      setPwordcheck(e.target.value);
-    } 
-    else {
-      errorAlerterRef.current.textContent = "비밀번호가 일치 하지 않습니다.";
+    if(pword===passwordconfirm){
+      errorAlerterRef.current.textContent = "";
+      setPwordcheck(true)
+    }
+    else{
+      errorAlerterRef.current.textContent = "비밀번호를 다시 확인해주세요.";
       setPwordcheck(false);
     }
-  };
+
+  })
+
 
 
   const handleNickname = (e) =>{
-    let Nickname = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    // 형식에 맞는 경우 true 리턴
-    if (Nickname.test(e.target.value)) {
-      errorAlerterRef.current.textContent = "";
-      
+    if(e.target.length>0){
       setuserNickname(e.target.value);
-    } 
+    }
   }
 
-
-  return (
+    return (
       <Container>
         <div className="joinWrapper">
             <h2 className="h2 bold joinheader">회원가입</h2>
@@ -140,7 +136,7 @@ const handlePasswordcheck = (e) => {
                 <input className="joinpwcheck" type="password" name="passwordcheck" id="passwordcheck" placeholder="비밀번호 확인" onChange={handlePasswordcheck}/>
               </div>
               <div className="textForm"> 
-                <input className="joinNickname" type="text" name="Nickname" id="Nickname" placeholder="닉네임"onChange={handleNickname}/>
+                <input className="joinNickname" type="text" name="Nickname" id="Nickname" placeholder="닉네임" onChange={handleNickname}/>
               </div>
               <p
                     ref={errRef}
