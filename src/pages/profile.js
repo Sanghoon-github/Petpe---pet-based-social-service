@@ -27,7 +27,7 @@ const Profile = () => {
     setIsLoading(true);
     try {
       axios
-        .get(`http://3.39.181.250/accounts/user/${auth.pk}`, {
+        .get(`http://3.34.21.153/accounts/user/${auth.pk}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${auth.accessToken}`,

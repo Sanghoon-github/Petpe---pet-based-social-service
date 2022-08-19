@@ -40,7 +40,7 @@ const Register = () => {
     console.log({ username: userNickname, email: userEmail, password1: pword, password2: pword, userimage:null})
     try {
       await axios.post(
-        "http://3.39.181.250/accounts/registration/",
+        "http://3.34.21.153/accounts/registration/",
         JSON.stringify({ username: userNickname, email: userEmail, password1: pword, password2: pword, userimage:null}),
         {
           headers: { "Content-Type": "application/json" },

@@ -14,10 +14,10 @@ const StoryDetail = () => {
 
   const handleSubmit=()=>{
     if(story!==undefined)
-    axios.post(`http://3.39.181.250/comments/`,
+    axios.post(`http://3.34.21.153/comments/`,
     {
       headers: { "Content-Type": "application/json" },
-      body:{ "text": String(comment), "story": Number(userkey.id) },
+      body:{ "text": comment, "story": userkey.id },
       withCredentials: true
     }
     )
@@ -29,7 +29,7 @@ const StoryDetail = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://3.39.181.250/story/${userkey.id}`).then((response) => {
+    axios.get(`http://3.34.21.153/story/${userkey.id}`).then((response) => {
       setStory(response.data);
       console.log(response.data)
       setIsLoading(false);

@@ -25,7 +25,7 @@ const Story = () => {
   useEffect(() => {
     setIsLoading(true);
     try {
-      axios.get("http://3.39.181.250/story").then((response) => {
+      axios.get("http://3.34.21.153/story").then((response) => {
         setStory(response.data.results);
         console.log(response.data.results)
         setIsLoading(false);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "../components/container";
 import Option from "./option";
+
 import {
   Link,
   Route,
@@ -28,7 +29,7 @@ const Account = () => {
     setIsLoading(true);
     try {
       axios
-        .get(`http://3.39.181.250/accounts/user/${userPK["*"]}`, {
+        .get(`http://3.34.21.153/accounts/user/${userPK["*"]}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${auth.accessToken}`,
@@ -93,6 +94,7 @@ const Account = () => {
                         alt="예시사진"
                         onClick={(()=>{navigate(`/story/${e.id}`)})}
                         className="exPicture"
+                        onClick={(()=>{navigate(`/story/${e.id}`)})}
                       ></img>
                     );
                   })}

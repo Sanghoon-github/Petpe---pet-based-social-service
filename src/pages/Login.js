@@ -45,7 +45,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://3.39.181.250/accounts/login/",
+        "http://3.34.21.153/accounts/login/",
         JSON.stringify({ username: "", email: user, password: pwd }),
         {
           headers: { "Content-Type": "application/json" },

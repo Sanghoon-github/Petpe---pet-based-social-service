@@ -13,6 +13,10 @@ import Layout from "./pages/Layout";
 import Newsocialing from "./pages/socialing"
 import NewStory from './pages/storyupdate';
 import Account from "./pages/account";
+import axios from './api/axios';
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'x-CSRFToken';
 
 
 function App() {

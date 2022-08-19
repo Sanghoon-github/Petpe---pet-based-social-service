@@ -25,7 +25,7 @@ const Socialing = () => {
   useEffect(() => {
     setIsLoading(true);
     try {
-      axios.get("http://3.39.181.250/social/socialring/").then((response) => {
+      axios.get("http://3.34.21.153/social/socialring/").then((response) => {
         setSocialPost(response.data);
         console.log(response.data);
         setIsLoading(false);

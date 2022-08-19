@@ -26,6 +26,22 @@ const NewStory = () => {
     console.log(formData);
 
     try {
+<<<<<<< HEAD
+      axios
+        .post(
+          "http://3.34.21.153/story/",formData, 
+          {
+            headers: {
+              "content-type": "multipart/form-data",
+              Authorization: `Bearer ${auth.accessToken}`,
+            },
+            withCredentials: true,
+            "Access-Control-Allow-Credentials": "*",
+          }
+        )
+        .then((response) => {
+          console.log(response);
+=======
       axios({
         method: "post",
         url: "http://3.39.181.250/story/",
@@ -51,6 +67,7 @@ const NewStory = () => {
         // )
         .then((response) => {
           console.log("response", JSON.stringify(response, contents, Picture));
+>>>>>>> 9e8214e1d83786e9cc3849bb4c6962813d23b2ba
         });
     } catch (err) {
       console.log(err);
