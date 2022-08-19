@@ -31,7 +31,7 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [userEmail, pword, pwordcheck, userNickname]);
+  }, [userNickname, userEmail, pword, pwordcheck]);
 
 
   // 회원가입 제출 함수
@@ -112,14 +112,12 @@ const Register = () => {
 
   })
 
-
-
   const handleNickname = (e) =>{
-    if(e.target.length>0){
       setuserNickname(e.target.value);
-    }
+  
   }
 
+  
     return (
       <Container>
         <div className="joinWrapper">

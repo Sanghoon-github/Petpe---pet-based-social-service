@@ -6,6 +6,7 @@ import TopHeader from "./../components/TopHeader";
 import MiniButton from "./../components/minibutton";
 import { MobileWrapper } from "./../components/globalComponent";
 import useAuth from "./../hooks/useAuth";
+import { stringify } from "../../../../../../AppData/Local/Microsoft/TypeScript/4.7/node_modules/jest-matcher-utils/build/index";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "x-CSRFToken";
@@ -15,21 +16,42 @@ const NewStory = () => {
   const [Picture, setPicture] = useState();
   const [title, setitle] = useState();
   const { auth } = useAuth();
+<<<<<<< HEAD
+=======
+  
+let dataSet ={
+  title:"",
+  contents:contents,
+  Picture:Picture,
+};
+
+>>>>>>> ae11dbda8780de5db890507a7b58592f470e636d
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
+<<<<<<< HEAD
 
     formData.append("title", "");
     formData.append("contents", contents);
     formData.append("picture", Picture);
     console.log(formData);
+=======
+    
+    let dataSet ={
+      title:"",
+      contents:contents,
+      Picture:Picture,
+    };
+
+    formData.append("data", JSON.stringify(dataSet))
+>>>>>>> ae11dbda8780de5db890507a7b58592f470e636d
 
     try {
 <<<<<<< HEAD
       axios
         .post(
-          "http://3.34.21.153/story/",formData, 
+          "http://3.34.21.153/story/", 
           {
             headers: {
               "content-type": "multipart/form-data",
